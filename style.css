@@ -20,8 +20,14 @@
   color: #0F172A !important;
 }
 
-.light-theme .border-white\/20 {
-  border-color: rgba(15, 23, 42, 0.2) !important;
+.light-theme .hover\:text-white:hover {
+    color: #000000 !important;
+}
+
+.light-theme .border-white\/20,
+.light-theme .border-slate-700,
+.light-theme .border-slate-800 {
+  border-color: #CBD5E1 !important; /* Slate 300 */
 }
 
 /* Ensure inputs are readable in light mode */
@@ -42,6 +48,35 @@
 .light-theme .bg-slate-700 {
   background-color: #E2E8F0 !important; /* Slate 200 */
   color: #0F172A !important;
+}
+
+/* Aggressively remove transparency in light mode for readability */
+.light-theme .bg-brand-dark\/70,
+.light-theme .bg-brand-light-dark\/80,
+.light-theme .bg-brand-light-dark\/90,
+.light-theme .bg-brand-light-dark\/50,
+.light-theme .backdrop-blur-sm,
+.light-theme .backdrop-blur-md {
+    background-color: #FFFFFF !important;
+    backdrop-filter: none !important;
+    opacity: 1 !important;
+}
+
+/* Add borders to containers in light mode where shadow/transparency was used for separation */
+.light-theme header,
+.light-theme .bg-brand-light-dark\/50 {
+    border-bottom: 1px solid #CBD5E1 !important;
+}
+
+.light-theme .bg-brand-light-dark {
+    background-color: #FFFFFF !important;
+    border: 1px solid #E2E8F0 !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Fix breadcrumb text colors in light mode explicitly if needed */
+.light-theme nav[aria-label="Breadcrumb"] .text-white {
+    color: #0F172A !important;
 }
 
 /* Custom styles for the price range input slider on tutors.html */
