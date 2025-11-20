@@ -4,11 +4,11 @@ tailwind.config = {
   theme: {
     extend: {
       colors: {
-        'brand-blue': '#2563EB',
-        'brand-dark': '#0F172A',
-        'brand-light-dark': '#1E293B',
-        'brand-text': '#E2E8F0',
-        'brand-text-secondary': '#94A3B8',
+        'brand-blue': 'var(--brand-blue)',
+        'brand-dark': 'var(--brand-dark)',
+        'brand-light-dark': 'var(--brand-light-dark)',
+        'brand-text': 'var(--brand-text)',
+        'brand-text-secondary': 'var(--brand-text-secondary)',
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],

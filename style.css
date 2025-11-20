@@ -1,5 +1,49 @@
 /* Custom styles shared across the application. */
 
+:root {
+  --brand-blue: #2563EB;
+  --brand-dark: #0F172A;
+  --brand-light-dark: #1E293B;
+  --brand-text: #E2E8F0;
+  --brand-text-secondary: #94A3B8;
+}
+
+.light-theme {
+  --brand-dark: #F8FAFC;        /* Slate 50 */
+  --brand-light-dark: #FFFFFF;  /* White */
+  --brand-text: #0F172A;        /* Slate 900 */
+  --brand-text-secondary: #475569; /* Slate 600 */
+}
+
+/* Light theme overrides for specific utility classes that are hardcoded in HTML */
+.light-theme .text-white {
+  color: #0F172A !important;
+}
+
+.light-theme .border-white\/20 {
+  border-color: rgba(15, 23, 42, 0.2) !important;
+}
+
+/* Ensure inputs are readable in light mode */
+.light-theme input, 
+.light-theme select, 
+.light-theme textarea {
+  background-color: #F1F5F9 !important; /* Slate 100 */
+  color: #0F172A !important;
+  border-color: #CBD5E1 !important; /* Slate 300 */
+}
+
+/* Keep primary buttons readable (Blue bg needs white text) */
+.light-theme .bg-brand-blue {
+  color: #FFFFFF !important;
+}
+
+/* Adjust secondary buttons (Slate 700) for light mode */
+.light-theme .bg-slate-700 {
+  background-color: #E2E8F0 !important; /* Slate 200 */
+  color: #0F172A !important;
+}
+
 /* Custom styles for the price range input slider on tutors.html */
 input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
