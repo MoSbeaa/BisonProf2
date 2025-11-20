@@ -62,6 +62,26 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
+  // --- Logic for Tutor Signup Form Submission ---
+  const tutorForm = document.getElementById('tutor-signup-form');
+  const tutorFormContainer = document.getElementById('tutor-signup-container');
+  const tutorSuccessMessage = document.getElementById('tutor-success-message');
+
+  if (tutorForm && tutorSuccessMessage) {
+      tutorForm.addEventListener('submit', function(e) {
+          e.preventDefault(); // Prevent actual submission
+          
+          // Hide the form content
+          if(tutorFormContainer) tutorFormContainer.classList.add('hidden');
+          
+          // Show success message
+          tutorSuccessMessage.classList.remove('hidden');
+          
+          // Scroll to top to ensure message is visible if page is long
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+  }
+
   // --- Shared logic: Update footer year dynamically ---
   const copyrightElement = document.querySelector('.copyright-text');
   if (copyrightElement) {
@@ -137,3 +157,53 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 });
+
+/**
+ * Handles switching tabs in the dashboards (Student and Tutor).
+ * @param {string} userType - 'student' or 'tutor'
+ * @param {string} sectionId - The ID suffix of the section to show (e.g., 'overview', 'settings')
+ */
+function switchDashboardTab(userType, sectionId) {
+    // 1. Hide all sections
+    const allSections = document.querySelectorAll('.dashboard-section');
+    allSections.forEach(section => {
+        section.classList.add('hidden');
+    });
+
+    // 2. Show target section
+    const targetSection = document.getElementById(`section-${sectionId}`);
+    if (targetSection) {
+        targetSection.classList.remove('hidden');
+    }
+
+    // 3. Update Navigation State
+    const allNavItems = document.querySelectorAll('.dashboard-nav-item');
+    allNavItems.forEach(item => {
+        // Reset to default styles
+        item.classList.remove('active', 'bg-slate-800/50', 'border-brand-blue', 'text-white');
+        item.classList.add('text-brand-text-secondary', 'border-transparent');
+    });
+
+    const activeNav = document.getElementById(`nav-${sectionId}`);
+    if (activeNav) {
+        // Apply active styles
+        activeNav.classList.add('active', 'bg-slate-800/50', 'border-brand-blue', 'text-white');
+        activeNav.classList.remove('text-brand-text-secondary', 'border-transparent');
+    }
+
+    // 4. Update Breadcrumb
+    const breadcrumbSpan = document.getElementById('breadcrumb-current-section');
+    if (breadcrumbSpan) {
+        // Capitalize first letter for display
+        // Special case: if sectionId is 'profile', maybe show 'Profile & Settings' based on nav text, 
+        // but simple Capitalization works for most.
+        let displayText = sectionId.charAt(0).toUpperCase() + sectionId.slice(1);
+        
+        // Check if we can get the text directly from the button to match exactly
+        if(activeNav) {
+            displayText = activeNav.textContent.trim();
+        }
+        
+        breadcrumbSpan.textContent = displayText;
+    }
+}

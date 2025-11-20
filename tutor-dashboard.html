@@ -15,7 +15,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-brand-dark text-brand-text font-sans">
+<body class="bg-brand-dark text-brand-text font-sans flex flex-col min-h-screen">
     
     <!-- Header -->
     <header class="bg-brand-dark/70 backdrop-blur-sm sticky top-0 z-50 border-b border-slate-800">
@@ -38,9 +38,10 @@
             </nav>
           </div>
           <div class="flex items-center space-x-4">
-            <a href="tutor-dashboard.html" class="text-white font-medium text-sm">
-              Dashboard
-            </a>
+             <div class="flex items-center gap-2 text-white font-medium text-sm border-r border-slate-700 pr-4 mr-2">
+                <img src="https://picsum.photos/seed/sarah/100" alt="Sarah" class="w-8 h-8 rounded-full border border-slate-600">
+                <span class="hidden sm:inline">Sarah</span>
+            </div>
             <a href="index.html" class="text-white border border-slate-700 hover:bg-slate-800 font-medium py-2 px-4 rounded-lg transition-colors duration-200 text-sm">
               Sign Out
             </a>
@@ -49,122 +50,267 @@
       </div>
     </header>
 
-    <div class="bg-brand-light-dark/50 border-b border-slate-800">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col md:flex-row gap-6">
+        
+        <!-- Sidebar Navigation -->
+        <aside class="w-full md:w-64 flex-shrink-0">
+            <div class="bg-brand-light-dark rounded-lg border border-slate-700 overflow-hidden sticky top-24">
+                <div class="p-4 border-b border-slate-700">
+                    <h2 class="text-xs font-semibold text-brand-text-secondary uppercase tracking-wider">Tutor Menu</h2>
+                </div>
+                <nav class="flex flex-col">
+                    <button onclick="switchDashboardTab('tutor', 'overview')" id="nav-overview" class="dashboard-nav-item active text-left px-4 py-3 text-sm font-medium text-white hover:bg-slate-700 border-l-4 border-brand-blue bg-slate-800/50 transition-colors">
+                        Overview
+                    </button>
+                    <button onclick="switchDashboardTab('tutor', 'bookings')" id="nav-bookings" class="dashboard-nav-item text-left px-4 py-3 text-sm font-medium text-brand-text-secondary hover:bg-slate-700 hover:text-white border-l-4 border-transparent transition-colors">
+                        Bookings
+                    </button>
+                    <button onclick="switchDashboardTab('tutor', 'availability')" id="nav-availability" class="dashboard-nav-item text-left px-4 py-3 text-sm font-medium text-brand-text-secondary hover:bg-slate-700 hover:text-white border-l-4 border-transparent transition-colors">
+                        Availability
+                    </button>
+                    <button onclick="switchDashboardTab('tutor', 'earnings')" id="nav-earnings" class="dashboard-nav-item text-left px-4 py-3 text-sm font-medium text-brand-text-secondary hover:bg-slate-700 hover:text-white border-l-4 border-transparent transition-colors">
+                        Earnings
+                    </button>
+                     <button onclick="switchDashboardTab('tutor', 'profile')" id="nav-profile" class="dashboard-nav-item text-left px-4 py-3 text-sm font-medium text-brand-text-secondary hover:bg-slate-700 hover:text-white border-l-4 border-transparent transition-colors">
+                        Profile & Settings
+                    </button>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="flex-1 min-w-0">
              <!-- Breadcrumb -->
-             <nav class="flex text-sm text-brand-text-secondary" aria-label="Breadcrumb">
-                <ol class="inline-flex items-center space-x-1 md:space-x-3">
-                    <li class="inline-flex items-center">
-                        <a href="index.html" class="hover:text-white transition-colors">Home</a>
-                    </li>
-                    <li>
-                        <div class="flex items-center">
-                            <svg class="w-3 h-3 mx-1 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
-                            </svg>
-                            <span class="ml-1 font-medium text-white md:ml-2">Tutor Dashboard</span>
+            <div class="mb-6">
+                 <nav class="flex text-sm text-brand-text-secondary" aria-label="Breadcrumb">
+                    <ol class="inline-flex items-center space-x-1 md:space-x-3">
+                        <li class="inline-flex items-center">
+                            <a href="index.html" class="hover:text-white transition-colors">Home</a>
+                        </li>
+                        <li>
+                            <div class="flex items-center">
+                                <svg class="w-3 h-3 mx-1 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+                                </svg>
+                                <span class="ml-1 font-medium text-brand-text-secondary md:ml-2">Tutor Dashboard</span>
+                            </div>
+                        </li>
+                         <li>
+                            <div class="flex items-center">
+                                <svg class="w-3 h-3 mx-1 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+                                </svg>
+                                <span id="breadcrumb-current-section" class="ml-1 font-medium text-white md:ml-2">Overview</span>
+                            </div>
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+
+            <!-- Section: Overview -->
+            <div id="section-overview" class="dashboard-section space-y-6">
+                <div class="mb-8">
+                    <h1 class="text-3xl font-bold text-white">Welcome back, Sarah!</h1>
+                    <p class="mt-2 text-brand-text-secondary">Here is what's happening with your students today.</p>
+                </div>
+
+                <!-- Stats Overview -->
+                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div class="bg-brand-light-dark p-4 rounded-lg border border-slate-700">
+                        <p class="text-sm text-brand-text-secondary">Total Earnings (Mo)</p>
+                        <p class="text-2xl font-bold text-white mt-1">$350.00</p>
+                    </div>
+                    <div class="bg-brand-light-dark p-4 rounded-lg border border-slate-700">
+                        <p class="text-sm text-brand-text-secondary">Upcoming Sessions</p>
+                        <p class="text-2xl font-bold text-white mt-1">4</p>
+                    </div>
+                    <div class="bg-brand-light-dark p-4 rounded-lg border border-slate-700">
+                        <p class="text-sm text-brand-text-secondary">Review Score</p>
+                        <p class="text-2xl font-bold text-white mt-1 flex items-center">4.9 <svg class="w-5 h-5 text-yellow-400 ml-1" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></p>
+                    </div>
+                </div>
+
+                <div class="bg-brand-light-dark p-6 rounded-lg border border-slate-700">
+                    <div class="flex justify-between items-center mb-4">
+                         <h2 class="text-xl font-bold text-white">Next Session</h2>
+                         <button onclick="switchDashboardTab('tutor', 'bookings')" class="text-sm text-brand-blue hover:underline">View Calendar</button>
+                    </div>
+                    <div class="flex flex-col md:flex-row items-center gap-6 p-4 bg-slate-800/50 rounded-lg border border-slate-600/50">
+                        <div class="flex items-center gap-4">
+                            <div class="w-14 h-14 rounded-full bg-purple-600 flex items-center justify-center text-white text-xl font-bold">A</div>
+                            <div>
+                                <h3 class="text-lg font-bold text-white">Alex Johnson</h3>
+                                <p class="text-brand-text-secondary">COMP 1020 Help</p>
+                            </div>
                         </div>
-                    </li>
-                </ol>
-            </nav>
-        </div>
+                         <div class="md:ml-auto flex items-center gap-6">
+                            <div class="text-right">
+                                <p class="text-white font-semibold">Tomorrow</p>
+                                <p class="text-sm text-brand-text-secondary">2:00 PM - 3:00 PM</p>
+                            </div>
+                            <button class="bg-brand-blue hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">Start Call</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section: Bookings -->
+            <div id="section-bookings" class="dashboard-section hidden space-y-6">
+                <div class="flex justify-between items-center">
+                    <h2 class="text-2xl font-bold text-white">Bookings</h2>
+                    <div class="flex gap-2">
+                         <button class="text-sm bg-slate-700 text-white px-3 py-1.5 rounded">Upcoming</button>
+                         <button class="text-sm bg-transparent text-brand-text-secondary hover:text-white px-3 py-1.5 rounded">Past</button>
+                    </div>
+                </div>
+                <div class="bg-brand-light-dark rounded-lg border border-slate-700 overflow-hidden">
+                    <div class="divide-y divide-slate-700">
+                        <!-- Item -->
+                        <div class="p-6 flex flex-col sm:flex-row justify-between items-center gap-4 hover:bg-slate-800/30 transition-colors">
+                            <div class="flex items-center gap-4 w-full sm:w-auto">
+                                <div class="w-12 h-12 rounded-full bg-purple-600 flex items-center justify-center text-white font-bold">A</div>
+                                <div>
+                                    <h4 class="font-bold text-white">Alex Johnson</h4>
+                                    <p class="text-sm text-brand-text-secondary">COMP 1020 • Tomorrow, 2:00 PM</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-2 w-full sm:w-auto">
+                                <button class="flex-1 sm:flex-none px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white text-sm rounded-lg transition-colors">Message</button>
+                                <button class="flex-1 sm:flex-none px-4 py-2 border border-slate-600 text-brand-text-secondary hover:text-white text-sm rounded-lg transition-colors">Reschedule</button>
+                            </div>
+                        </div>
+                         <!-- Item -->
+                        <div class="p-6 flex flex-col sm:flex-row justify-between items-center gap-4 hover:bg-slate-800/30 transition-colors">
+                            <div class="flex items-center gap-4 w-full sm:w-auto">
+                                <div class="w-12 h-12 rounded-full bg-pink-500 flex items-center justify-center text-white font-bold">B</div>
+                                <div>
+                                    <h4 class="font-bold text-white">Brenda Smith</h4>
+                                    <p class="text-sm text-brand-text-secondary">COMP 1010 • Oct 29, 4:00 PM</p>
+                                </div>
+                            </div>
+                             <div class="flex gap-2 w-full sm:w-auto">
+                                <button class="flex-1 sm:flex-none px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white text-sm rounded-lg transition-colors">Message</button>
+                                <button class="flex-1 sm:flex-none px-4 py-2 border border-slate-600 text-brand-text-secondary hover:text-white text-sm rounded-lg transition-colors">Reschedule</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section: Availability -->
+            <div id="section-availability" class="dashboard-section hidden space-y-6">
+                <h2 class="text-2xl font-bold text-white">Weekly Availability</h2>
+                <div class="bg-brand-light-dark p-6 rounded-lg border border-slate-700">
+                    <p class="text-brand-text-secondary mb-6">Select the times you are available to tutor. Changes save automatically.</p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between p-4 bg-slate-800/50 rounded-lg">
+                            <div class="flex items-center gap-4">
+                                <input type="checkbox" checked class="w-5 h-5 bg-slate-700 border-slate-500 rounded text-brand-blue focus:ring-brand-blue">
+                                <span class="text-white font-medium">Monday</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <select class="bg-slate-700 border-slate-600 text-white text-sm rounded p-1"><option>4:00 PM</option></select>
+                                <span class="text-brand-text-secondary">-</span>
+                                <select class="bg-slate-700 border-slate-600 text-white text-sm rounded p-1"><option>7:00 PM</option></select>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between p-4 bg-slate-800/50 rounded-lg">
+                            <div class="flex items-center gap-4">
+                                <input type="checkbox" class="w-5 h-5 bg-slate-700 border-slate-500 rounded text-brand-blue focus:ring-brand-blue">
+                                <span class="text-white font-medium text-opacity-50">Tuesday</span>
+                            </div>
+                             <span class="text-sm text-brand-text-secondary">Unavailable</span>
+                        </div>
+                        <div class="flex items-center justify-between p-4 bg-slate-800/50 rounded-lg">
+                            <div class="flex items-center gap-4">
+                                <input type="checkbox" checked class="w-5 h-5 bg-slate-700 border-slate-500 rounded text-brand-blue focus:ring-brand-blue">
+                                <span class="text-white font-medium">Wednesday</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <select class="bg-slate-700 border-slate-600 text-white text-sm rounded p-1"><option>2:00 PM</option></select>
+                                <span class="text-brand-text-secondary">-</span>
+                                <select class="bg-slate-700 border-slate-600 text-white text-sm rounded p-1"><option>6:00 PM</option></select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Section: Earnings -->
+            <div id="section-earnings" class="dashboard-section hidden space-y-6">
+                 <h2 class="text-2xl font-bold text-white">Earnings History</h2>
+                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                     <div class="bg-brand-light-dark p-6 rounded-lg border border-slate-700">
+                         <p class="text-brand-text-secondary text-sm">Available for Payout</p>
+                         <h3 class="text-3xl font-bold text-white mt-2">$125.00</h3>
+                         <button class="mt-4 w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-md text-sm font-medium transition-colors">Withdraw Funds</button>
+                     </div>
+                 </div>
+                 <div class="bg-brand-light-dark rounded-lg border border-slate-700 overflow-hidden">
+                     <table class="w-full text-left text-sm text-brand-text-secondary">
+                         <thead class="bg-slate-800 text-white uppercase font-semibold">
+                             <tr>
+                                 <th class="px-6 py-3">Date</th>
+                                 <th class="px-6 py-3">Student</th>
+                                 <th class="px-6 py-3">Duration</th>
+                                 <th class="px-6 py-3 text-right">Amount</th>
+                             </tr>
+                         </thead>
+                         <tbody class="divide-y divide-slate-700">
+                             <tr class="hover:bg-slate-800/30">
+                                 <td class="px-6 py-4">Oct 25, 2024</td>
+                                 <td class="px-6 py-4">Mike Ross</td>
+                                 <td class="px-6 py-4">1 hr</td>
+                                 <td class="px-6 py-4 text-right text-green-400">+$25.00</td>
+                             </tr>
+                              <tr class="hover:bg-slate-800/30">
+                                 <td class="px-6 py-4">Oct 22, 2024</td>
+                                 <td class="px-6 py-4">Jessica Pearson</td>
+                                 <td class="px-6 py-4">2 hrs</td>
+                                 <td class="px-6 py-4 text-right text-green-400">+$50.00</td>
+                             </tr>
+                         </tbody>
+                     </table>
+                 </div>
+            </div>
+
+            <!-- Section: Profile -->
+            <div id="section-profile" class="dashboard-section hidden space-y-6">
+                <h2 class="text-2xl font-bold text-white">Profile & Settings</h2>
+                <div class="bg-brand-light-dark p-6 rounded-lg border border-slate-700">
+                    <div class="flex items-center gap-6 mb-6">
+                        <img src="https://picsum.photos/seed/sarah/200" alt="Sarah" class="w-24 h-24 rounded-full border-4 border-slate-700">
+                        <div>
+                            <button class="text-sm bg-slate-700 hover:bg-slate-600 text-white px-4 py-2 rounded transition-colors">Change Photo</button>
+                        </div>
+                    </div>
+                    <form class="space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-brand-text-secondary mb-1">Display Name</label>
+                                <input type="text" value="Sarah Chen" class="w-full bg-slate-700 border border-slate-600 text-white rounded-md p-2.5">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-brand-text-secondary mb-1">Hourly Rate ($)</label>
+                                <input type="number" value="25" class="w-full bg-slate-700 border border-slate-600 text-white rounded-md p-2.5">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-brand-text-secondary mb-1">Bio</label>
+                            <textarea rows="4" class="w-full bg-slate-700 border border-slate-600 text-white rounded-md p-2.5">Computer Science major passionate about helping others understand algorithms and data structures.</textarea>
+                        </div>
+                        <div class="pt-4">
+                             <button type="button" class="bg-brand-blue hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors duration-200">Save Profile</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </main>
     </div>
 
-    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div class="mb-12">
-            <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-white">Welcome back, Sarah!</h1>
-            <p class="mt-2 text-lg text-brand-text-secondary">Here's your tutor dashboard.</p>
-        </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <!-- Left Column -->
-            <div class="lg:col-span-2 space-y-8">
-                <!-- Upcoming Bookings -->
-                <div class="bg-brand-light-dark p-6 rounded-lg border border-slate-700">
-                    <h2 class="text-2xl font-bold text-white mb-4">Upcoming Bookings</h2>
-                    <ul class="space-y-4">
-                        <li class="flex items-center justify-between p-4 bg-slate-800/50 rounded-lg">
-                            <div class="flex items-center gap-4">
-                               <div class="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center font-bold text-white text-xl">A</div>
-                                <div>
-                                    <h3 class="font-bold text-white">Alex Johnson</h3>
-                                    <p class="text-sm text-brand-text-secondary">for COMP 1020</p>
-                                </div>
-                            </div>
-                            <div class="text-right">
-                                <p class="font-semibold text-white">Tomorrow, 2:00 PM</p>
-                                <a href="#" class="text-sm text-brand-blue hover:underline">View Details</a>
-                            </div>
-                        </li>
-                        <li class="flex items-center justify-between p-4 bg-slate-800/50 rounded-lg">
-                            <div class="flex items-center gap-4">
-                                <div class="w-12 h-12 rounded-full bg-pink-500 flex items-center justify-center font-bold text-white text-xl">B</div>
-                                <div>
-                                    <h3 class="font-bold text-white">Brenda Smith</h3>
-                                    <p class="text-sm text-brand-text-secondary">for COMP 1010</p>
-                                </div>
-                            </div>
-                            <div class="text-right">
-                                <p class="font-semibold text-white">Oct 29, 4:00 PM</p>
-                                <a href="#" class="text-sm text-brand-blue hover:underline">View Details</a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <!-- Earnings Summary -->
-                <div class="bg-brand-light-dark p-6 rounded-lg border border-slate-700">
-                    <h2 class="text-2xl font-bold text-white mb-4">Earnings Summary</h2>
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
-                        <div class="bg-slate-800/50 p-4 rounded-lg">
-                            <p class="text-sm text-brand-text-secondary">This Week</p>
-                            <p class="text-2xl font-bold text-white mt-1">$75.00</p>
-                        </div>
-                        <div class="bg-slate-800/50 p-4 rounded-lg">
-                            <p class="text-sm text-brand-text-secondary">This Month</p>
-                            <p class="text-2xl font-bold text-white mt-1">$350.00</p>
-                        </div>
-                        <div class="bg-slate-800/50 p-4 rounded-lg">
-                            <p class="text-sm text-brand-text-secondary">Next Payout</p>
-                            <p class="text-2xl font-bold text-white mt-1">$125.00</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Right Column -->
-            <div class="space-y-8">
-                <!-- My Profile -->
-                <div class="bg-brand-light-dark p-6 rounded-lg border border-slate-700">
-                    <div class="flex flex-col items-center text-center">
-                        <img src="https://picsum.photos/seed/sarah/200" alt="Sarah Chen" class="w-24 h-24 rounded-full mb-4 ring-4 ring-slate-700" />
-                        <h3 class="text-xl font-bold text-white">Sarah Chen</h3>
-                        <p class="text-brand-text-secondary mt-1 text-sm">Computer Science Tutor</p>
-                         <div class="flex items-center my-3 text-brand-text-secondary">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 text-yellow-400 mr-1"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.007z" clip-rule="evenodd" /></svg>
-                            <span class="text-white font-semibold">4.9</span>
-                            <span class="ml-1 text-sm">(32 reviews)</span>
-                        </div>
-                        <button class="w-full mt-2 bg-slate-700 hover:bg-slate-600 text-white font-semibold py-2.5 rounded-lg transition-colors duration-200">
-                            Edit Profile
-                        </button>
-                    </div>
-                </div>
-                <!-- Availability -->
-                <div class="bg-brand-light-dark p-6 rounded-lg border border-slate-700">
-                    <h2 class="text-2xl font-bold text-white mb-4">Availability</h2>
-                    <ul class="space-y-2 text-sm">
-                        <li class="flex justify-between p-2 rounded-md bg-slate-800/50"><span>Mondays</span><span>4 PM - 7 PM</span></li>
-                        <li class="flex justify-between p-2 rounded-md bg-slate-800/50"><span>Wednesdays</span><span>2 PM - 6 PM</span></li>
-                        <li class="flex justify-between p-2 rounded-md bg-slate-800/50"><span>Fridays</span><span>1 PM - 5 PM</span></li>
-                    </ul>
-                     <button class="w-full mt-4 bg-slate-700 hover:bg-slate-600 text-white font-semibold py-2.5 rounded-lg transition-colors duration-200">
-                        Manage Availability
-                    </button>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <footer class="border-t border-slate-800 mt-12">
+    <footer class="border-t border-slate-800 mt-auto">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 text-brand-text-secondary">
         <div class="flex flex-col-reverse sm:flex-row justify-between items-center gap-6">
           <p class="copyright-text text-sm text-center sm:text-left">&copy; 2024 Bison Prof. All rights reserved.</p>

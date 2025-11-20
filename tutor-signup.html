@@ -75,96 +75,113 @@
 
     <main class="flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div class="w-full max-w-2xl space-y-8">
-        <div class="bg-brand-light-dark border border-slate-700 rounded-2xl p-8 shadow-2xl">
-          <div class="text-center mb-8">
-            <h2 class="text-3xl font-extrabold text-white">Become a Tutor at Bison Prof</h2>
-            <p class="mt-2 text-brand-text-secondary">Share your knowledge and earn money helping fellow students.</p>
-          </div>
+        <div class="bg-brand-light-dark border border-slate-700 rounded-2xl p-8 shadow-2xl transition-all duration-300">
           
-          <form class="space-y-6" action="#" method="POST">
-            <!-- Section 1: Account Information -->
-            <div>
-              <h3 class="text-lg font-bold text-white border-b border-slate-700 pb-2 mb-4">Account Information</h3>
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div>
-                  <label for="full-name" class="block text-sm font-medium text-brand-text-secondary mb-1">Full Name</label>
-                  <input id="full-name" name="name" type="text" required class="w-full bg-slate-700 border border-slate-600 text-white rounded-md p-2.5 focus:ring-brand-blue focus:border-brand-blue" placeholder="Jane Doe">
-                </div>
-                <div>
-                  <label for="email-address" class="block text-sm font-medium text-brand-text-secondary mb-1">Email address</label>
-                  <input id="email-address" name="email" type="email" required class="w-full bg-slate-700 border border-slate-600 text-white rounded-md p-2.5 focus:ring-brand-blue focus:border-brand-blue" placeholder="you@example.com">
-                </div>
-                <div>
-                  <label for="password" class="block text-sm font-medium text-brand-text-secondary mb-1">Password</label>
-                  <input id="password" name="password" type="password" required class="w-full bg-slate-700 border border-slate-600 text-white rounded-md p-2.5 focus:ring-brand-blue focus:border-brand-blue" placeholder="••••••••">
-                </div>
-                <div>
-                  <label for="confirm-password" class="block text-sm font-medium text-brand-text-secondary mb-1">Confirm Password</label>
-                  <input id="confirm-password" name="confirm-password" type="password" required class="w-full bg-slate-700 border border-slate-600 text-white rounded-md p-2.5 focus:ring-brand-blue focus:border-brand-blue" placeholder="••••••••">
-                </div>
+          <!-- Form Container -->
+          <div id="tutor-signup-container">
+              <div class="text-center mb-8">
+                <h2 class="text-3xl font-extrabold text-white">Become a Tutor at Bison Prof</h2>
+                <p class="mt-2 text-brand-text-secondary">Share your knowledge and earn money helping fellow students.</p>
               </div>
-            </div>
-
-            <!-- Section 2: Academic Details -->
-            <div>
-              <h3 class="text-lg font-bold text-white border-b border-slate-700 pb-2 mb-4">Academic Details</h3>
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                 <div>
-                    <label for="major-select" class="block text-sm font-medium text-brand-text-secondary mb-1">Primary Major</label>
-                    <div class="relative">
-                      <select id="major-select" name="major" required class="w-full bg-slate-700 border border-slate-600 text-white rounded-md p-2.5 focus:ring-brand-blue focus:border-brand-blue appearance-none">
-                          <option>Select a major</option>
-                          <option>Computer Science</option>
-                          <option>Mathematics</option>
-                          <option>Biology</option>
-                          <option>Chemistry</option>
-                          <option>Psychology</option>
-                          <option>Engineering</option>
-                      </select>
-                      <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-400">
-                          <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-                      </div>
+              
+              <form id="tutor-signup-form" class="space-y-6" action="#" method="POST">
+                <!-- Section 1: Account Information -->
+                <div>
+                  <h3 class="text-lg font-bold text-white border-b border-slate-700 pb-2 mb-4">Account Information</h3>
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label for="full-name" class="block text-sm font-medium text-brand-text-secondary mb-1">Full Name</label>
+                      <input id="full-name" name="name" type="text" required class="w-full bg-slate-700 border border-slate-600 text-white rounded-md p-2.5 focus:ring-brand-blue focus:border-brand-blue" placeholder="Jane Doe">
                     </div>
-                 </div>
-                 <div>
-                    <label for="year-of-study" class="block text-sm font-medium text-brand-text-secondary mb-1">Year of Study</label>
-                    <input id="year-of-study" name="year" type="text" required class="w-full bg-slate-700 border border-slate-600 text-white rounded-md p-2.5 focus:ring-brand-blue focus:border-brand-blue" placeholder="e.g., Undergraduate Year 3">
-                 </div>
-              </div>
-            </div>
-
-            <!-- Section 3: Tutoring Expertise -->
-            <div>
-              <h3 class="text-lg font-bold text-white border-b border-slate-700 pb-2 mb-4">Tutoring Expertise</h3>
-              <div>
-                <label for="courses" class="block text-sm font-medium text-brand-text-secondary mb-1">Courses You Can Tutor</label>
-                <textarea id="courses" name="courses" rows="3" required class="w-full bg-slate-700 border border-slate-600 text-white rounded-md p-2.5 focus:ring-brand-blue focus:border-brand-blue" placeholder="e.g., COMP 1010, MATH 1500, CHEM 1300..."></textarea>
-              </div>
-               <div class="mt-4">
-                <label for="experience" class="block text-sm font-medium text-brand-text-secondary mb-1">Tutoring Experience (Optional)</label>
-                <textarea id="experience" name="experience" rows="3" class="w-full bg-slate-700 border border-slate-600 text-white rounded-md p-2.5 focus:ring-brand-blue focus:border-brand-blue" placeholder="Briefly describe your teaching or tutoring experience."></textarea>
-              </div>
-            </div>
-
-            <!-- Section 4: Verification -->
-            <div>
-              <h3 class="text-lg font-bold text-white border-b border-slate-700 pb-2 mb-4">Verification</h3>
-              <div class="grid grid-cols-1 gap-4">
-                <div>
-                  <label for="transcript-upload" class="block text-sm font-medium text-brand-text-secondary mb-1">Upload Unofficial Transcript</label>
-                  <input id="transcript-upload" name="transcript-upload" type="file" required class="w-full text-sm text-brand-text-secondary file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-slate-700 file:text-white hover:file:bg-slate-600">
-                  <p class="mt-2 text-xs text-brand-text-secondary">Please upload your most recent unofficial transcript for verification. (PDF, DOCX, JPG)</p>
+                    <div>
+                      <label for="email-address" class="block text-sm font-medium text-brand-text-secondary mb-1">Email address</label>
+                      <input id="email-address" name="email" type="email" required class="w-full bg-slate-700 border border-slate-600 text-white rounded-md p-2.5 focus:ring-brand-blue focus:border-brand-blue" placeholder="you@example.com">
+                    </div>
+                    <div>
+                      <label for="password" class="block text-sm font-medium text-brand-text-secondary mb-1">Password</label>
+                      <input id="password" name="password" type="password" required class="w-full bg-slate-700 border border-slate-600 text-white rounded-md p-2.5 focus:ring-brand-blue focus:border-brand-blue" placeholder="••••••••">
+                    </div>
+                    <div>
+                      <label for="confirm-password" class="block text-sm font-medium text-brand-text-secondary mb-1">Confirm Password</label>
+                      <input id="confirm-password" name="confirm-password" type="password" required class="w-full bg-slate-700 border border-slate-600 text-white rounded-md p-2.5 focus:ring-brand-blue focus:border-brand-blue" placeholder="••••••••">
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
 
-            <!-- Submission -->
-            <div class="pt-4">
-              <button type="submit" class="group relative flex w-full justify-center rounded-lg border border-transparent bg-brand-blue py-3 px-4 text-sm font-semibold text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-brand-blue focus:ring-offset-2 focus:ring-offset-brand-dark transition-colors duration-200">
-                Submit Application
-              </button>
+                <!-- Section 2: Academic Details -->
+                <div>
+                  <h3 class="text-lg font-bold text-white border-b border-slate-700 pb-2 mb-4">Academic Details</h3>
+                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                     <div>
+                        <label for="major-select" class="block text-sm font-medium text-brand-text-secondary mb-1">Primary Major</label>
+                        <div class="relative">
+                          <select id="major-select" name="major" required class="w-full bg-slate-700 border border-slate-600 text-white rounded-md p-2.5 focus:ring-brand-blue focus:border-brand-blue appearance-none">
+                              <option value="">Select a major</option>
+                              <option>Computer Science</option>
+                              <option>Mathematics</option>
+                              <option>Biology</option>
+                              <option>Chemistry</option>
+                              <option>Psychology</option>
+                              <option>Engineering</option>
+                          </select>
+                          <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-400">
+                              <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                          </div>
+                        </div>
+                     </div>
+                     <div>
+                        <label for="year-of-study" class="block text-sm font-medium text-brand-text-secondary mb-1">Year of Study</label>
+                        <input id="year-of-study" name="year" type="text" required class="w-full bg-slate-700 border border-slate-600 text-white rounded-md p-2.5 focus:ring-brand-blue focus:border-brand-blue" placeholder="e.g., Undergraduate Year 3">
+                     </div>
+                  </div>
+                </div>
+
+                <!-- Section 3: Tutoring Expertise -->
+                <div>
+                  <h3 class="text-lg font-bold text-white border-b border-slate-700 pb-2 mb-4">Tutoring Expertise</h3>
+                  <div>
+                    <label for="courses" class="block text-sm font-medium text-brand-text-secondary mb-1">Courses You Can Tutor</label>
+                    <textarea id="courses" name="courses" rows="3" required class="w-full bg-slate-700 border border-slate-600 text-white rounded-md p-2.5 focus:ring-brand-blue focus:border-brand-blue" placeholder="e.g., COMP 1010, MATH 1500, CHEM 1300..."></textarea>
+                  </div>
+                   <div class="mt-4">
+                    <label for="experience" class="block text-sm font-medium text-brand-text-secondary mb-1">Tutoring Experience (Optional)</label>
+                    <textarea id="experience" name="experience" rows="3" class="w-full bg-slate-700 border border-slate-600 text-white rounded-md p-2.5 focus:ring-brand-blue focus:border-brand-blue" placeholder="Briefly describe your teaching or tutoring experience."></textarea>
+                  </div>
+                </div>
+
+                <!-- Section 4: Verification -->
+                <div>
+                  <h3 class="text-lg font-bold text-white border-b border-slate-700 pb-2 mb-4">Verification</h3>
+                  <div class="grid grid-cols-1 gap-4">
+                    <div>
+                      <label for="transcript-upload" class="block text-sm font-medium text-brand-text-secondary mb-1">Upload Unofficial Transcript</label>
+                      <input id="transcript-upload" name="transcript-upload" type="file" required class="w-full text-sm text-brand-text-secondary file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-slate-700 file:text-white hover:file:bg-slate-600">
+                      <p class="mt-2 text-xs text-brand-text-secondary">Please upload your most recent unofficial transcript for verification. (PDF, DOCX, JPG)</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Submission -->
+                <div class="pt-4">
+                  <button type="submit" class="group relative flex w-full justify-center rounded-lg border border-transparent bg-brand-blue py-3 px-4 text-sm font-semibold text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-brand-blue focus:ring-offset-2 focus:ring-offset-brand-dark transition-colors duration-200">
+                    Submit Application
+                  </button>
+                </div>
+              </form>
+          </div>
+
+          <!-- Success Message (Hidden by default) -->
+          <div id="tutor-success-message" class="hidden flex flex-col items-center justify-center text-center py-8 animate-fade-in">
+            <div class="w-20 h-20 bg-green-500/20 rounded-full flex items-center justify-center mb-6">
+                <svg class="w-10 h-10 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
             </div>
-          </form>
+            <h2 class="text-3xl font-bold text-white mb-4">Application Received!</h2>
+            <p class="text-brand-text-secondary text-lg mb-8">We will review your application and contact you soon.</p>
+            <a href="index.html" class="bg-brand-blue hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200">
+                Return Home
+            </a>
+          </div>
+
         </div>
       </div>
     </main>
