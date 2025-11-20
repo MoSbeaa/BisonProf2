@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-g" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bison Prof - Find Tutors</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind Config -->
+    <script src="tailwind.config.js"></script>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+  <body class="bg-brand-dark text-brand-text font-sans">
+    
+    <!-- Header -->
+    <header class="bg-brand-dark/70 backdrop-blur-sm sticky top-0 z-50 border-b border-slate-800">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <div class="flex items-center space-x-8">
+            <a href="index.html" class="text-2xl font-bold text-white">
+              Bison Prof
+            </a>
+            <nav class="hidden md:flex space-x-8">
+              <a href="majors.html" class="text-brand-text-secondary hover:text-white transition-colors duration-200">
+                Majors
+              </a>
+              <a href="tutors.html" class="text-brand-text-secondary hover:text-white transition-colors duration-200">
+                Tutors
+              </a>
+              <a href="courses.html" class="text-brand-text-secondary hover:text-white transition-colors duration-200">
+                Courses
+              </a>
+            </nav>
+          </div>
+          <div class="flex items-center space-x-4">
+            <a href="tutor-signup.html" class="text-brand-text-secondary hover:text-white transition-colors duration-200 text-sm font-medium hidden lg:block">
+              Become a Tutor
+            </a>
+            <a href="login.html" class="text-white border border-slate-700 hover:bg-slate-800 font-medium py-2 px-4 rounded-lg transition-colors duration-200 text-sm">
+              Sign In
+            </a>
+            <a href="signup.html" class="bg-brand-blue hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 text-sm">
+              Sign Up
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <div class="relative h-[45vh] min-h-[400px] flex items-center justify-center text-center text-white overflow-visible">
+            <div
+                class="absolute inset-0 bg-cover bg-center"
+                style="background-image: url('https://picsum.photos/seed/mountains/1920/1080')"
+            ></div>
+            <div class="absolute inset-0 bg-black/60"></div>
+            <div class="relative z-10 p-4">
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-4">
+                Welcome to Bison Prof<br>
+                Where Bisons Help Bisons
+                </h1>
+                <p class="max-w-2xl mx-auto text-lg sm:text-xl text-brand-text-secondary">
+                Your one-stop platform to connect with talented tutors from the University of Manitoba. Achieve academic excellence with personalized help.
+                </p>
+            </div>
+            <div class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 z-20 w-full max-w-3xl px-4">
+              <form action="tutors.html" method="GET" class="flex flex-col sm:flex-row items-center bg-brand-light-dark/80 backdrop-blur-md border border-white/20 p-2 rounded-lg gap-2 shadow-2xl">
+                    <div class="relative w-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" /></svg>
+                        <input
+                        type="text"
+                        name="q"
+                        placeholder="Search by course, major, or tutor..."
+                        class="w-full bg-transparent pl-10 pr-4 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-0"
+                        />
+                    </div>
+                    <div class="flex w-full sm:w-auto gap-2">
+                        <button type="submit" class="w-full sm:w-auto bg-brand-blue hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-md flex items-center justify-center gap-2 transition-colors duration-200">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" /></svg>
+                            Search
+                        </button>
+                        <button id="advanced-search-btn" type="button" class="w-full sm:w-auto bg-slate-700 hover:bg-slate-600 text-white font-semibold py-2 px-6 rounded-md flex items-center justify-center gap-2 transition-colors duration-200">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75" /></svg>
+                            Advanced
+                        </button>
+                    </div>
+                </form>
+                <!-- Advanced Search Popup Content -->
+                <div id="advanced-search-popup-content" class="hidden mt-2 bg-brand-light-dark/90 backdrop-blur-md border border-white/20 p-4 rounded-lg shadow-2xl">
+                  <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-left">
+                    <div>
+                      <label for="major-select" class="block text-sm font-medium text-brand-text-secondary mb-1">Major</label>
+                      <div class="relative">
+                        <select id="major-select" class="w-full bg-slate-700 border border-slate-600 text-white rounded-md p-2.5 focus:ring-brand-blue focus:border-brand-blue appearance-none">
+                            <option>Select a major</option>
+                            <option>Computer Science</option>
+                            <option>Mathematics</option>
+                            <option>Biology</option>
+                            <option>Chemistry</option>
+                            <option>Psychology</option>
+                            <option>Engineering</option>
+                        </select>
+                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-400">
+                            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <label for="course-select" class="block text-sm font-medium text-brand-text-secondary mb-1">Course</label>
+                      <div class="relative">
+                        <select id="course-select" class="w-full bg-slate-700 border border-slate-600 text-white rounded-md p-2.5 focus:ring-brand-blue focus:border-brand-blue appearance-none">
+                            <option>Select a course</option>
+                            <option>COMP1020</option>
+                            <option>MATH1500</option>
+                            <option>BIOL1020</option>
+                            <option>CHEM1300</option>
+                            <option>PSYC1200</option>
+                            <option>ENG1440</option>
+                        </select>
+                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-400">
+                            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <label for="date-picker" class="block text-sm font-medium text-brand-text-secondary mb-1">Date</label>
+                      <div class="relative">
+                        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                          <svg class="w-4 h-4 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V4Zm-2 14H4V8h14v10Zm-4-7h-2v2h2v-2Zm-4 0H8v2h2v-2Zm-4 0H4v2h2v-2Z"/>
+                          </svg>
+                        </div>
+                        <input type="text" id="date-picker" class="w-full bg-slate-700 border border-slate-600 text-white rounded-md p-2.5 pl-10 focus:ring-brand-blue focus:border-brand-blue" placeholder="Pick a date">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <section class="pt-24 pb-16 sm:pt-32 sm:pb-24">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-white">Explore by Major</h2>
+                    <p class="mt-4 text-lg text-brand-text-secondary">Find tutors specializing in your field of study.</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="relative rounded-lg overflow-hidden group aspect-[3/2]">
+                        <img src="https://picsum.photos/seed/cs/600/400" alt="Computer Science" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                        <div class="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors duration-300"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                        <h3 class="text-white text-2xl font-bold">Computer Science</h3>
+                        </div>
+                        <a href="tutors.html?major=cs" class="absolute inset-0" aria-label="View tutors for Computer Science"></a>
+                    </div>
+                    <div class="relative rounded-lg overflow-hidden group aspect-[3/2]">
+                        <img src="https://picsum.photos/seed/math/600/400" alt="Mathematics" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                        <div class="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors duration-300"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                        <h3 class="text-white text-2xl font-bold">Mathematics</h3>
+                        </div>
+                        <a href="tutors.html?major=math" class="absolute inset-0" aria-label="View tutors for Mathematics"></a>
+                    </div>
+                    <div class="relative rounded-lg overflow-hidden group aspect-[3/2]">
+                        <img src="https://picsum.photos/seed/bio/600/400" alt="Biology" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                        <div class="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors duration-300"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                        <h3 class="text-white text-2xl font-bold">Biology</h3>
+                        </div>
+                        <a href="tutors.html?major=bio" class="absolute inset-0" aria-label="View tutors for Biology"></a>
+                    </div>
+                    <div class="relative rounded-lg overflow-hidden group aspect-[3/2]">
+                        <img src="https://picsum.photos/seed/chem/600/400" alt="Chemistry" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                        <div class="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors duration-300"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                        <h3 class="text-white text-2xl font-bold">Chemistry</h3>
+                        </div>
+                        <a href="tutors.html?major=chem" class="absolute inset-0" aria-label="View tutors for Chemistry"></a>
+                    </div>
+                    <div class="relative rounded-lg overflow-hidden group aspect-[3/2]">
+                        <img src="https://picsum.photos/seed/psych/600/400" alt="Psychology" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                        <div class="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors duration-300"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                        <h3 class="text-white text-2xl font-bold">Psychology</h3>
+                        </div>
+                        <a href="tutors.html?major=psych" class="absolute inset-0" aria-label="View tutors for Psychology"></a>
+                    </div>
+                    <div class="relative rounded-lg overflow-hidden group aspect-[3/2]">
+                        <img src="https://picsum.photos/seed/eng/600/400" alt="Engineering" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                        <div class="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors duration-300"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                        <h3 class="text-white text-2xl font-bold">Engineering</h3>
+                        </div>
+                        <a href="tutors.html?major=eng" class="absolute inset-0" aria-label="View tutors for Engineering"></a>
+                    </div>
+                </div>
+                <div class="mt-12 text-center">
+                    <a href="majors.html" class="inline-block bg-brand-light-dark hover:bg-slate-600 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200">
+                      View All Majors
+                    </a>
+                </div>
+            </section>
+
+            <section class="py-16 sm:py-24 border-t border-slate-800">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-white">Most Booked Courses</h2>
+                    <p class="mt-4 text-lg text-brand-text-secondary">Discover the most popular courses students are getting help with.</p>
+                </div>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <button class="bg-brand-light-dark hover:bg-slate-600 text-brand-text-secondary font-medium py-3 px-6 rounded-lg transition-colors duration-200">COMP1020</button>
+                    <button class="bg-brand-light-dark hover:bg-slate-600 text-brand-text-secondary font-medium py-3 px-6 rounded-lg transition-colors duration-200">MATH1500</button>
+                    <button class="bg-brand-light-dark hover:bg-slate-600 text-brand-text-secondary font-medium py-3 px-6 rounded-lg transition-colors duration-200">BIOL1020</button>
+                    <button class="bg-brand-light-dark hover:bg-slate-600 text-brand-text-secondary font-medium py-3 px-6 rounded-lg transition-colors duration-200">CHEM1300</button>
+                    <button class="bg-brand-light-dark hover:bg-slate-600 text-brand-text-secondary font-medium py-3 px-6 rounded-lg transition-colors duration-200">PSYC1200</button>
+                    <button class="bg-brand-light-dark hover:bg-slate-600 text-brand-text-secondary font-medium py-3 px-6 rounded-lg transition-colors duration-200">ENG1440</button>
+                </div>
+                <div class="mt-12 text-center">
+                    <a href="courses.html" class="inline-block bg-brand-light-dark hover:bg-slate-600 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200">
+                      View All Courses
+                    </a>
+                </div>
+            </section>
+
+            <section class="py-16 sm:py-24 border-t border-slate-800">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-white">Top-Rated Tutors</h2>
+                    <p class="mt-4 text-lg text-brand-text-secondary">Connect with our most acclaimed educators.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-brand-light-dark rounded-lg p-6 flex flex-col items-center text-center shadow-lg border border-slate-700">
+                        <img src="https://picsum.photos/seed/olivia/200" alt="Olivia Brown" class="w-24 h-24 rounded-full mb-4 ring-4 ring-slate-700" />
+                        <h3 class="text-xl font-bold text-white">Olivia Brown</h3>
+                        <div class="flex items-center gap-2 text-brand-text-secondary mt-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4"><path d="M12 14l9-5-9-5-9 5 9 5z" /><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" /><path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222 4 2.222V20M1 12v5a1 1 0 001 1h22a1 1 0 001-1v-5" /></svg>
+                            <p>Psychology</p>
+                        </div>
+                        <div class="flex items-center my-3 text-brand-text-secondary">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 text-yellow-400 mr-1"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.007z" clip-rule="evenodd" /></svg>
+                        <span class="text-white font-semibold">5.0</span>
+                        <span class="ml-1">(50 reviews)</span>
+                        </div>
+                        <div class="w-full text-left my-4 pt-4 border-t border-slate-700">
+                            <h4 class="flex items-center gap-2 text-sm font-semibold text-brand-text-secondary mb-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" /></svg>
+                                Courses
+                            </h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-slate-700 text-xs font-medium text-brand-text-secondary px-2 py-1 rounded-md">Introduction to Psychology</span>
+                                <span class="bg-slate-700 text-xs font-medium text-brand-text-secondary px-2 py-1 rounded-md">Child Development</span>
+                            </div>
+                        </div>
+                        <div class="w-full mt-auto flex justify-between items-center pt-4 border-t border-slate-700">
+                            <p class="text-xl font-bold text-white">$27<span class="text-sm font-normal text-brand-text-secondary">/hr</span></p>
+                            <a href="tutors.html" class="bg-brand-blue hover:bg-blue-700 text-white font-semibold py-2 px-5 rounded-lg transition-colors duration-200">
+                                View Profile
+                            </a>
+                        </div>
+                    </div>
+                    <div class="bg-brand-light-dark rounded-lg p-6 flex flex-col items-center text-center shadow-lg border border-slate-700">
+                        <img src="https://picsum.photos/seed/sarah/200" alt="Sarah Chen" class="w-24 h-24 rounded-full mb-4 ring-4 ring-slate-700" />
+                        <h3 class="text-xl font-bold text-white">Sarah Chen</h3>
+                        <div class="flex items-center gap-2 text-brand-text-secondary mt-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4"><path d="M12 14l9-5-9-5-9 5 9 5z" /><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" /><path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222 4 2.222V20M1 12v5a1 1 0 001 1h22a1 1 0 001-1v-5" /></svg>
+                            <p>Computer Science</p>
+                        </div>
+                        <div class="flex items-center my-3 text-brand-text-secondary">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 text-yellow-400 mr-1"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.007z" clip-rule="evenodd" /></svg>
+                        <span class="text-white font-semibold">4.9</span>
+                        <span class="ml-1">(32 reviews)</span>
+                        </div>
+                        <div class="w-full text-left my-4 pt-4 border-t border-slate-700">
+                            <h4 class="flex items-center gap-2 text-sm font-semibold text-brand-text-secondary mb-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" /></svg>
+                                Courses
+                            </h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-slate-700 text-xs font-medium text-brand-text-secondary px-2 py-1 rounded-md">Introductory Computer Science 1</span>
+                                <span class="bg-slate-700 text-xs font-medium text-brand-text-secondary px-2 py-1 rounded-md">Introductory Computer Science 2</span>
+                            </div>
+                        </div>
+                        <div class="w-full mt-auto flex justify-between items-center pt-4 border-t border-slate-700">
+                            <p class="text-xl font-bold text-white">$25<span class="text-sm font-normal text-brand-text-secondary">/hr</span></p>
+                            <a href="tutors.html" class="bg-brand-blue hover:bg-blue-700 text-white font-semibold py-2 px-5 rounded-lg transition-colors duration-200">
+                                View Profile
+                            </a>
+                        </div>
+                    </div>
+                    <div class="bg-brand-light-dark rounded-lg p-6 flex flex-col items-center text-center shadow-lg border border-slate-700">
+                        <img src="https://picsum.photos/seed/maria/200" alt="Maria Garcia" class="w-24 h-24 rounded-full mb-4 ring-4 ring-slate-700" />
+                        <h3 class="text-xl font-bold text-white">Maria Garcia</h3>
+                        <div class="flex items-center gap-2 text-brand-text-secondary mt-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4"><path d="M12 14l9-5-9-5-9 5 9 5z" /><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" /><path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222 4 2.222V20M1 12v5a1 1 0 001 1h22a1 1 0 001-1v-5" /></svg>
+                            <p>Mathematics</p>
+                        </div>
+                        <div class="flex items-center my-3 text-brand-text-secondary">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 text-yellow-400 mr-1"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.007z" clip-rule="evenodd" /></svg>
+                        <span class="text-white font-semibold">4.9</span>
+                        <span class="ml-1">(41 reviews)</span>
+                        </div>
+                        <div class="w-full text-left my-4 pt-4 border-t border-slate-700">
+                            <h4 class="flex items-center gap-2 text-sm font-semibold text-brand-text-secondary mb-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" /></svg>
+                                Courses
+                            </h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-slate-700 text-xs font-medium text-brand-text-secondary px-2 py-1 rounded-md">Vector Geometry and Linear Algebra</span>
+                                <span class="bg-slate-700 text-xs font-medium text-brand-text-secondary px-2 py-1 rounded-md">Introduction to Calculus</span>
+                            </div>
+                        </div>
+                        <div class="w-full mt-auto flex justify-between items-center pt-4 border-t border-slate-700">
+                            <p class="text-xl font-bold text-white">$35<span class="text-sm font-normal text-brand-text-secondary">/hr</span></p>
+                            <a href="tutors.html" class="bg-brand-blue hover:bg-blue-700 text-white font-semibold py-2 px-5 rounded-lg transition-colors duration-200">
+                                View Profile
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-12 text-center">
+                    <a href="tutors.html" class="inline-block bg-brand-light-dark hover:bg-slate-600 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200">
+                      View All Tutors
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+    
+    <footer class="border-t border-slate-800">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 text-brand-text-secondary">
+        <div class="flex flex-col-reverse sm:flex-row justify-between items-center gap-6">
+          <p class="copyright-text text-sm text-center sm:text-left">&copy; 2024 Bison Prof. All rights reserved.</p>
+          <div class="flex items-center space-x-6">
+            <a href="#" class="text-sm hover:text-white transition-colors duration-200">Policy</a>
+            <a href="#" class="text-sm hover:text-white transition-colors duration-200">Contact Us</a>
+            <a href="#" class="text-sm hover:text-white transition-colors duration-200">Help</a>
+            <a href="#" class="text-sm hover:text-white transition-colors duration-200">About</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

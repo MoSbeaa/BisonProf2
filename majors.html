@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Majors - Bison Prof</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind Config -->
+    <script src="tailwind.config.js"></script>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-brand-dark text-brand-text font-sans">
+    
+    <!-- Header -->
+    <header class="bg-brand-dark/70 backdrop-blur-sm sticky top-0 z-50 border-b border-slate-800">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <div class="flex items-center space-x-8">
+            <a href="index.html" class="text-2xl font-bold text-white">
+              Bison Prof
+            </a>
+            <nav class="hidden md:flex space-x-8">
+              <a href="majors.html" class="text-brand-text-secondary hover:text-white transition-colors duration-200">
+                Majors
+              </a>
+              <a href="tutors.html" class="text-brand-text-secondary hover:text-white transition-colors duration-200">
+                Tutors
+              </a>
+              <a href="courses.html" class="text-brand-text-secondary hover:text-white transition-colors duration-200">
+                Courses
+              </a>
+            </nav>
+          </div>
+          <div class="flex items-center space-x-4">
+            <a href="tutor-signup.html" class="text-brand-text-secondary hover:text-white transition-colors duration-200 text-sm font-medium hidden lg:block">
+              Become a Tutor
+            </a>
+            <a href="login.html" class="text-white border border-slate-700 hover:bg-slate-800 font-medium py-2 px-4 rounded-lg transition-colors duration-200 text-sm">
+              Sign In
+            </a>
+            <a href="signup.html" class="bg-brand-blue hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 text-sm">
+              Sign Up
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="bg-brand-light-dark/50 border-b border-slate-800">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4">
+             <form action="tutors.html" method="GET" class="flex flex-col sm:flex-row items-center bg-brand-light-dark/80 backdrop-blur-md border border-white/20 p-2 rounded-lg gap-2 shadow-2xl w-full max-w-3xl mx-auto">
+                <div class="relative w-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" /></svg>
+                    <input
+                    type="text"
+                    name="q"
+                    placeholder="Search by course, major, or tutor..."
+                    class="w-full bg-transparent pl-10 pr-4 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-0"
+                    />
+                </div>
+                <div class="flex w-full sm:w-auto gap-2">
+                    <button type="submit" class="w-full sm:w-auto bg-brand-blue hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-md flex items-center justify-center gap-2 transition-colors duration-200">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" /></svg>
+                        Search
+                    </button>
+                    <button id="advanced-search-btn" type="button" class="w-full sm:w-auto bg-slate-700 hover:bg-slate-600 text-white font-semibold py-2 px-6 rounded-md flex items-center justify-center gap-2 transition-colors duration-200">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75" /></svg>
+                        Advanced
+                    </button>
+                </div>
+            </form>
+            <!-- Advanced Search Popup Content -->
+            <div id="advanced-search-popup-content" class="hidden mt-2 bg-brand-light-dark/90 backdrop-blur-md border border-white/20 p-4 rounded-lg shadow-2xl w-full max-w-3xl mx-auto">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-left">
+                <div>
+                    <label for="adv-major-select" class="block text-sm font-medium text-brand-text-secondary mb-1">Major</label>
+                    <div class="relative">
+                    <select id="adv-major-select" class="w-full bg-slate-700 border border-slate-600 text-white rounded-md p-2.5 focus:ring-brand-blue focus:border-brand-blue appearance-none">
+                        <option>Select a major</option>
+                        <option>Computer Science</option>
+                        <option>Mathematics</option>
+                        <option>Biology</option>
+                        <option>Chemistry</option>
+                        <option>Psychology</option>
+                        <option>Engineering</option>
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-400">
+                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                    </div>
+                    </div>
+                </div>
+                <div>
+                    <label for="adv-course-select" class="block text-sm font-medium text-brand-text-secondary mb-1">Course</label>
+                    <div class="relative">
+                    <select id="adv-course-select" class="w-full bg-slate-700 border border-slate-600 text-white rounded-md p-2.5 focus:ring-brand-blue focus:border-brand-blue appearance-none">
+                        <option>Select a course</option>
+                        <option>COMP1020</option>
+                        <option>MATH1500</option>
+                        <option>BIOL1020</option>
+                        <option>CHEM1300</option>
+                        <option>PSYC1200</option>
+                        <option>ENG1440</option>
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-400">
+                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                    </div>
+                    </div>
+                </div>
+                <div>
+                    <label for="date-picker" class="block text-sm font-medium text-brand-text-secondary mb-1">Date</label>
+                    <div class="relative">
+                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                        <svg class="w-4 h-4 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V4Zm-2 14H4V8h14v10Zm-4-7h-2v2h2v-2Zm-4 0H8v2h2v-2Zm-4 0H4v2h2v-2Z"/>
+                        </svg>
+                    </div>
+                    <input type="text" id="date-picker" class="w-full bg-slate-700 border border-slate-600 text-white rounded-md p-2.5 pl-10 focus:ring-brand-blue focus:border-brand-blue" placeholder="Pick a date">
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="text-center mb-12">
+            <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-white">Explore All Majors</h1>
+            <p class="mt-4 text-lg text-brand-text-secondary">Find tutors specializing in your field of study.</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="relative rounded-lg overflow-hidden group aspect-[3/2]">
+                <img src="https://picsum.photos/seed/cs/600/400" alt="Computer Science" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                <div class="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors duration-300"></div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                <h3 class="text-white text-2xl font-bold">Computer Science</h3>
+                </div>
+                <a href="tutors.html?major=cs" class="absolute inset-0" aria-label="View tutors for Computer Science"></a>
+            </div>
+            <div class="relative rounded-lg overflow-hidden group aspect-[3/2]">
+                <img src="https://picsum.photos/seed/math/600/400" alt="Mathematics" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                <div class="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors duration-300"></div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                <h3 class="text-white text-2xl font-bold">Mathematics</h3>
+                </div>
+                <a href="tutors.html?major=math" class="absolute inset-0" aria-label="View tutors for Mathematics"></a>
+            </div>
+            <div class="relative rounded-lg overflow-hidden group aspect-[3/2]">
+                <img src="https://picsum.photos/seed/bio/600/400" alt="Biology" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                <div class="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors duration-300"></div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                <h3 class="text-white text-2xl font-bold">Biology</h3>
+                </div>
+                <a href="tutors.html?major=bio" class="absolute inset-0" aria-label="View tutors for Biology"></a>
+            </div>
+            <div class="relative rounded-lg overflow-hidden group aspect-[3/2]">
+                <img src="https://picsum.photos/seed/chem/600/400" alt="Chemistry" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                <div class="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors duration-300"></div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                <h3 class="text-white text-2xl font-bold">Chemistry</h3>
+                </div>
+                <a href="tutors.html?major=chem" class="absolute inset-0" aria-label="View tutors for Chemistry"></a>
+            </div>
+            <div class="relative rounded-lg overflow-hidden group aspect-[3/2]">
+                <img src="https://picsum.photos/seed/psych/600/400" alt="Psychology" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                <div class="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors duration-300"></div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                <h3 class="text-white text-2xl font-bold">Psychology</h3>
+                </div>
+                <a href="tutors.html?major=psych" class="absolute inset-0" aria-label="View tutors for Psychology"></a>
+            </div>
+            <div class="relative rounded-lg overflow-hidden group aspect-[3/2]">
+                <img src="https://picsum.photos/seed/eng/600/400" alt="Engineering" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                <div class="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors duration-300"></div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                <h3 class="text-white text-2xl font-bold">Engineering</h3>
+                </div>
+                <a href="tutors.html?major=eng" class="absolute inset-0" aria-label="View tutors for Engineering"></a>
+            </div>
+            <div class="relative rounded-lg overflow-hidden group aspect-[3/2]">
+                <img src="https://picsum.photos/seed/physics/600/400" alt="Physics" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                <div class="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors duration-300"></div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                <h3 class="text-white text-2xl font-bold">Physics</h3>
+                </div>
+                <a href="tutors.html?major=physics" class="absolute inset-0" aria-label="View tutors for Physics"></a>
+            </div>
+            <div class="relative rounded-lg overflow-hidden group aspect-[3/2]">
+                <img src="https://picsum.photos/seed/business/600/400" alt="Business" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                <div class="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors duration-300"></div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                <h3 class="text-white text-2xl font-bold">Business</h3>
+                </div>
+                <a href="tutors.html?major=business" class="absolute inset-0" aria-label="View tutors for Business"></a>
+            </div>
+            <div class="relative rounded-lg overflow-hidden group aspect-[3/2]">
+                <img src="https://picsum.photos/seed/arts/600/400" alt="Arts" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                <div class="absolute inset-0 bg-black/50 group-hover:bg-black/40 transition-colors duration-300"></div>
+                <div class="absolute inset-0 flex items-center justify-center">
+                <h3 class="text-white text-2xl font-bold">Arts</h3>
+                </div>
+                <a href="tutors.html?major=arts" class="absolute inset-0" aria-label="View tutors for Arts"></a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="border-t border-slate-800 mt-12">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 text-brand-text-secondary">
+        <div class="flex flex-col-reverse sm:flex-row justify-between items-center gap-6">
+          <p class="copyright-text text-sm text-center sm:text-left">&copy; 2024 Bison Prof. All rights reserved.</p>
+          <div class="flex items-center space-x-6">
+            <a href="#" class="text-sm hover:text-white transition-colors duration-200">Policy</a>
+            <a href="#" class="text-sm hover:text-white transition-colors duration-200">Contact Us</a>
+            <a href="#" class="text-sm hover:text-white transition-colors duration-200">Help</a>
+            <a href="#" class="text-sm hover:text-white transition-colors duration-200">About</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+/* Custom styles shared across the application. */
+
+/* Custom styles for the price range input slider on tutors.html */
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 9999px;
+  background: #2563EB;
+  cursor: pointer;
+  margin-top: -6px; /* Align thumb with track in WebKit browsers */
+}
+
+input[type=range]::-moz-range-thumb {
+  height: 16px;
+  width: 16px;
+  border-radius: 9999px;
+  background: #2563EB;
+  cursor: pointer;
+}
