@@ -71,7 +71,7 @@
                     </li>
                 </ol>
             </nav>
-             <form action="tutors.html" method="GET" class="flex flex-col sm:flex-row items-center bg-brand-light-dark/80 backdrop-blur-md border border-white/20 p-2 rounded-lg gap-2 shadow-2xl w-full max-w-3xl mx-auto">
+             <form action="tutors.html" method="GET" class="flex flex-col sm:flex-row items-center bg-brand-light-dark/80 backdrop-blur-md border border-white/10 p-3 rounded-xl gap-3 shadow-xl w-full max-w-3xl mx-auto ring-1 ring-white/5">
                 <div class="relative w-full">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" /></svg>
                     <input
@@ -82,12 +82,10 @@
                     />
                 </div>
                 <div class="flex w-full sm:w-auto gap-2">
-                    <button type="submit" class="w-full sm:w-auto bg-brand-blue hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-md flex items-center justify-center gap-2 transition-colors duration-200">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" /></svg>
+                    <button type="submit" class="w-full sm:w-auto bg-brand-blue hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-lg flex items-center justify-center gap-2 transition-all duration-200 shadow-lg shadow-brand-blue/20">
                         Search
                     </button>
-                    <button id="advanced-search-btn" type="button" class="w-full sm:w-auto bg-slate-700 hover:bg-slate-600 text-white font-semibold py-2 px-6 rounded-md flex items-center justify-center gap-2 transition-colors duration-200">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75" /></svg>
+                    <button id="advanced-search-btn" type="button" class="w-full sm:w-auto bg-slate-700 hover:bg-slate-600 text-white font-semibold py-2 px-6 rounded-lg flex items-center justify-center gap-2 transition-colors duration-200">
                         Advanced
                     </button>
                 </div>
@@ -226,7 +224,7 @@
         </div>
     </main>
 
-    <footer class="border-t border-slate-800 mt-12">
+    <footer class="border-t border-slate-800 bg-brand-dark">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 text-brand-text-secondary">
         <div class="flex flex-col-reverse sm:flex-row justify-between items-center gap-6">
           <p class="copyright-text text-sm text-center sm:text-left">&copy; 2024 Bison Prof. All rights reserved.</p>

@@ -616,7 +616,7 @@ function setupChatPopup() {
                 const tutorMsgDiv = document.createElement('div');
                 tutorMsgDiv.className = 'flex gap-3 animate-fade-in';
                 tutorMsgDiv.innerHTML = `
-                    <img src="https://picsum.photos/seed/sarah-chen/50" class="w-8 h-8 rounded-full self-end mb-1 border border-slate-700">
+                    <img src="assets/images/f1" class="w-8 h-8 rounded-full self-end mb-1 border border-slate-700">
                     <div class="bg-slate-700 text-white p-3 rounded-2xl rounded-bl-none max-w-[80%] text-sm shadow-sm">
                         <p>Got it! I'll get back to you shortly.</p>
                     </div>

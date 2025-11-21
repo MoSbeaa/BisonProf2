@@ -3,6 +3,8 @@ Bison Prof
 Overview
 - Bison Prof is a simple static front-end for finding tutors by major, course, or name. Built with HTML, Java Script and Tailwind CSS.
 
+How to Start
+- Just click on the index.html file
 
 Demo Logins
 - Tutor: `tutor@email.com`

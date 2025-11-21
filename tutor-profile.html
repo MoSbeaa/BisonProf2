@@ -263,46 +263,70 @@
                     </div>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                          <!-- Other Tutor 1 -->
-                        <div class="bg-brand-light-dark rounded-xl p-5 border border-slate-800 hover-card-glow flex flex-col items-center text-center">
-                            <img src="https://picsum.photos/seed/david-lee/200" alt="David Lee" class="w-16 h-16 rounded-full mb-3 ring-2 ring-slate-700 object-cover" />
-                            <h3 class="font-bold text-white">David Lee</h3>
-                             <div class="flex items-center gap-1 text-brand-blue mt-1 mb-2 text-sm font-medium">
-                                <p>Computer Science</p>
+                        <div class="tutor-card bg-brand-light-dark rounded-2xl p-6 flex flex-col shadow-lg border border-slate-800 hover-card-glow">
+                            <div class="tutor-header flex flex-col items-center text-center">
+                                <img src="assets/images/m1.jpg" alt="David Lee" class="w-28 h-28 rounded-full mb-4 ring-4 ring-slate-800 object-cover" />
+                                <div class="flex flex-col items-center text-center w-full">
+                                    <h3 class="text-xl font-bold text-white">David Lee</h3>
+                                    <div class="flex items-center gap-2 text-brand-blue mt-1 font-medium">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path d="M12 14l9-5-9-5-9 5 9 5z" /><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" /><path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222 4 2.222V20M1 12v5a1 1 0 001 1h22a1 1 0 001-1v-5" /></svg>
+                                        <p class="text-sm">Computer Science</p>
+                                    </div>
+                                    <div class="flex items-center my-3 bg-slate-800/50 px-3 py-1 rounded-full">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 text-yellow-400 mr-1"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.007z" clip-rule="evenodd" /></svg>
+                                        <span class="text-white font-bold">4.8</span>
+                                        <span class="ml-1 text-brand-text-secondary text-sm">(25 reviews)</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="flex items-center justify-center gap-1 bg-slate-800/50 px-2 py-1 rounded-full mb-3">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 text-yellow-400"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.007z" clip-rule="evenodd" /></svg>
-                                <span class="text-white text-xs font-bold">4.8</span>
-                                <span class="text-brand-text-secondary text-[10px]">(25)</span>
+                            <div class="tutor-body w-full text-left my-4 pt-4 border-t border-slate-800">
+                                <h4 class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-text-secondary mb-3">
+                                    Courses
+                                </h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-slate-800 border border-slate-700 text-xs font-medium text-brand-text-secondary px-2.5 py-1 rounded-md">Python</span>
+                                    <span class="bg-slate-800 border border-slate-700 text-xs font-medium text-brand-text-secondary px-2.5 py-1 rounded-md">Data Science</span>
+                                </div>
                             </div>
-                             <div class="flex flex-wrap justify-center gap-1.5 mb-3">
-                                <span class="bg-slate-800 text-[10px] font-medium text-brand-text-secondary px-2 py-0.5 rounded">Python</span>
-                                <span class="bg-slate-800 text-[10px] font-medium text-brand-text-secondary px-2 py-0.5 rounded">Data Science</span>
-                            </div>
-                            <div class="mt-auto w-full pt-3 border-t border-slate-800 flex justify-between items-center">
-                                <span class="text-white font-bold">$30<span class="text-xs font-normal text-brand-text-secondary">/hr</span></span>
-                                <a href="tutor-profile.html" class="text-xs bg-slate-700 hover:bg-slate-600 text-white px-3 py-1.5 rounded transition-colors">Profile</a>
+                            <div class="tutor-footer mt-auto text-center space-y-3 pt-4">
+                                <p class="text-2xl font-bold text-white">$30<span class="text-sm font-normal text-brand-text-secondary">/hr</span></p>
+                                <a href="tutor-profile.html" class="block w-full bg-brand-blue hover:bg-blue-600 text-white font-semibold py-3 rounded-lg transition-colors duration-200 shadow-lg shadow-brand-blue/20">
+                                    View Profile
+                                </a>
                             </div>
                         </div>
                         
                         <!-- Other Tutor 2 -->
-                        <div class="bg-brand-light-dark rounded-xl p-5 border border-slate-800 hover-card-glow flex flex-col items-center text-center">
-                            <img src="https://picsum.photos/seed/james-smith/200" alt="James Smith" class="w-16 h-16 rounded-full mb-3 ring-2 ring-slate-700 object-cover" />
-                            <h3 class="font-bold text-white">James Smith</h3>
-                             <div class="flex items-center gap-1 text-brand-blue mt-1 mb-2 text-sm font-medium">
-                                <p>Engineering</p>
+                        <div class="tutor-card bg-brand-light-dark rounded-2xl p-6 flex flex-col shadow-lg border border-slate-800 hover-card-glow">
+                            <div class="tutor-header flex flex-col items-center text-center">
+                                <img src="assets/images/m2.jpg" alt="James Smith" class="w-28 h-28 rounded-full mb-4 ring-4 ring-slate-800 object-cover" />
+                                <div class="flex flex-col items-center text-center w-full">
+                                    <h3 class="text-xl font-bold text-white">James Smith</h3>
+                                    <div class="flex items-center gap-2 text-brand-blue mt-1 font-medium">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4"><path d="M12 14l9-5-9-5-9 5 9 5z" /><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" /><path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222 4 2.222V20M1 12v5a1 1 0 001 1h22a1 1 0 001-1v-5" /></svg>
+                                        <p class="text-sm">Engineering</p>
+                                    </div>
+                                    <div class="flex items-center my-3 bg-slate-800/50 px-3 py-1 rounded-full">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5 text-yellow-400 mr-1"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.007z" clip-rule="evenodd" /></svg>
+                                        <span class="text-white font-bold">4.7</span>
+                                        <span class="ml-1 text-brand-text-secondary text-sm">(19 reviews)</span>
+                                    </div>
+                                </div>
                             </div>
-                             <div class="flex items-center justify-center gap-1 bg-slate-800/50 px-2 py-1 rounded-full mb-3">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 text-yellow-400"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.007z" clip-rule="evenodd" /></svg>
-                                <span class="text-white text-xs font-bold">4.7</span>
-                                <span class="text-brand-text-secondary text-[10px]">(19)</span>
+                            <div class="tutor-body w-full text-left my-4 pt-4 border-t border-slate-800">
+                                <h4 class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-brand-text-secondary mb-3">
+                                    Courses
+                                </h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-slate-800 border border-slate-700 text-xs font-medium text-brand-text-secondary px-2.5 py-1 rounded-md">C++</span>
+                                    <span class="bg-slate-800 border border-slate-700 text-xs font-medium text-brand-text-secondary px-2.5 py-1 rounded-md">Matlab</span>
+                                </div>
                             </div>
-                             <div class="flex flex-wrap justify-center gap-1.5 mb-3">
-                                <span class="bg-slate-800 text-[10px] font-medium text-brand-text-secondary px-2 py-0.5 rounded">C++</span>
-                                <span class="bg-slate-800 text-[10px] font-medium text-brand-text-secondary px-2 py-0.5 rounded">Matlab</span>
-                            </div>
-                            <div class="mt-auto w-full pt-3 border-t border-slate-800 flex justify-between items-center">
-                                <span class="text-white font-bold">$28<span class="text-xs font-normal text-brand-text-secondary">/hr</span></span>
-                                <a href="tutor-profile.html" class="text-xs bg-slate-700 hover:bg-slate-600 text-white px-3 py-1.5 rounded transition-colors">Profile</a>
+                            <div class="tutor-footer mt-auto text-center space-y-3 pt-4">
+                                <p class="text-2xl font-bold text-white">$28<span class="text-sm font-normal text-brand-text-secondary">/hr</span></p>
+                                <a href="tutor-profile.html" class="block w-full bg-brand-blue hover:bg-blue-600 text-white font-semibold py-3 rounded-lg transition-colors duration-200 shadow-lg shadow-brand-blue/20">
+                                    View Profile
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -315,7 +339,7 @@
                     <div class="flex flex-col items-center text-center">
                         <div class="relative mb-3">
                              <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-brand-blue to-brand-accent blur opacity-50"></div>
-                             <img src="https://picsum.photos/seed/sarah-chen/300" alt="Sarah Chen" class="relative w-24 h-24 rounded-full ring-2 ring-slate-700 object-cover" />
+                             <img src="assets/images/f1.jpg" alt="Sarah Chen" class="relative w-24 h-24 rounded-full ring-2 ring-slate-700 object-cover" />
                              <div class="absolute bottom-0 right-0 bg-green-500 w-5 h-5 rounded-full border-2 border-brand-light-dark" title="Online"></div>
                         </div>
                         <div class="flex items-center justify-center gap-1 mb-1">
