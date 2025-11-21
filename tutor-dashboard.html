@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tutor Dashboard - Bison Prof</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind Config -->
+    <script src="assets/js/tailwind.config.js"></script>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-brand-dark text-brand-text font-sans flex flex-col min-h-screen">
+    
+    <!-- Header -->
+    <header class="bg-brand-dark/70 backdrop-blur-sm sticky top-0 z-50 border-b border-slate-800">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <div class="flex items-center space-x-8">
+            <a href="index.html" class="flex items-center gap-2 text-2xl font-extrabold text-white tracking-tight">
+              <img src="assets/images/logo.png" alt="Bison Prof" class="h-16 w-auto" />
+              <span class="text-brand-blue">Prof</span>
+            </a>
+            <nav class="hidden md:flex space-x-8">
+              <a href="majors.html" class="text-brand-text-secondary hover:text-white transition-colors duration-200">
+                Majors
+              </a>
+              <a href="tutors.html" class="text-brand-text-secondary hover:text-white transition-colors duration-200">
+                Tutors
+              </a>
+              <a href="courses.html" class="text-brand-text-secondary hover:text-white transition-colors duration-200">
+                Courses
+              </a>
+            </nav>
+          </div>
+          <div class="flex items-center space-x-4">
+             <div class="flex items-center gap-2 text-white font-medium text-sm border-r border-slate-700 pr-4 mr-2">
+                <img src="https://picsum.photos/seed/sarah/100" alt="Sarah" class="w-8 h-8 rounded-full border border-slate-600">
+                <span class="hidden sm:inline">Sarah</span>
+            </div>
+            <a href="index.html" class="text-white border border-slate-700 hover:bg-slate-800 font-medium py-2 px-4 rounded-lg transition-colors duration-200 text-sm">
+              Sign Out
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col md:flex-row gap-6">
+        
+        <!-- Sidebar Navigation -->
+        <aside class="w-full md:w-64 flex-shrink-0">
+            <div class="bg-brand-light-dark rounded-lg border border-slate-700 overflow-hidden sticky top-24">
+                <div class="p-4 border-b border-slate-700">
+                    <h2 class="text-xs font-semibold text-brand-text-secondary uppercase tracking-wider">Tutor Menu</h2>
+                </div>
+                <nav class="flex flex-col">
+                    <button onclick="switchDashboardTab('tutor', 'overview')" id="nav-overview" class="dashboard-nav-item active text-left px-4 py-3 text-sm font-medium text-white hover:bg-slate-700 border-l-4 border-brand-blue bg-slate-800/50 transition-colors">
+                        Overview
+                    </button>
+                    <button onclick="switchDashboardTab('tutor', 'bookings')" id="nav-bookings" class="dashboard-nav-item text-left px-4 py-3 text-sm font-medium text-brand-text-secondary hover:bg-slate-700 hover:text-white border-l-4 border-transparent transition-colors">
+                        Bookings
+                    </button>
+                    <button onclick="switchDashboardTab('tutor', 'availability')" id="nav-availability" class="dashboard-nav-item text-left px-4 py-3 text-sm font-medium text-brand-text-secondary hover:bg-slate-700 hover:text-white border-l-4 border-transparent transition-colors">
+                        Availability
+                    </button>
+                    <button onclick="switchDashboardTab('tutor', 'earnings')" id="nav-earnings" class="dashboard-nav-item text-left px-4 py-3 text-sm font-medium text-brand-text-secondary hover:bg-slate-700 hover:text-white border-l-4 border-transparent transition-colors">
+                        Earnings
+                    </button>
+                     <button onclick="switchDashboardTab('tutor', 'profile')" id="nav-profile" class="dashboard-nav-item text-left px-4 py-3 text-sm font-medium text-brand-text-secondary hover:bg-slate-700 hover:text-white border-l-4 border-transparent transition-colors">
+                        Profile & Settings
+                    </button>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="flex-1 min-w-0">
+             <!-- Breadcrumb -->
+            <div class="mb-6">
+                 <nav class="flex text-sm text-brand-text-secondary" aria-label="Breadcrumb">
+                    <ol class="inline-flex items-center space-x-1 md:space-x-3">
+                        <li class="inline-flex items-center">
+                            <a href="index.html" class="hover:text-white transition-colors">Home</a>
+                        </li>
+                        <li>
+                            <div class="flex items-center">
+                                <svg class="w-3 h-3 mx-1 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+                                </svg>
+                                <span class="ml-1 font-medium text-brand-text-secondary md:ml-2">Tutor Dashboard</span>
+                            </div>
+                        </li>
+                         <li>
+                            <div class="flex items-center">
+                                <svg class="w-3 h-3 mx-1 text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+                                </svg>
+                                <span id="breadcrumb-current-section" class="ml-1 font-medium text-white md:ml-2">Overview</span>
+                            </div>
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+
+            <!-- Section: Overview -->
+            <div id="section-overview" class="dashboard-section space-y-6">
+                <div class="mb-8">
+                    <h1 class="text-3xl font-bold text-white">Welcome back, Sarah!</h1>
+                    <p class="mt-2 text-brand-text-secondary">Here is what's happening with your students today.</p>
+                </div>
+
+                <!-- Stats Overview -->
+                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div class="bg-brand-light-dark p-4 rounded-lg border border-slate-700">
+                        <p class="text-sm text-brand-text-secondary">Total Earnings (Mo)</p>
+                        <p class="text-2xl font-bold text-white mt-1">$350.00</p>
+                    </div>
+                    <div class="bg-brand-light-dark p-4 rounded-lg border border-slate-700">
+                        <p class="text-sm text-brand-text-secondary">Upcoming Sessions</p>
+                        <p class="text-2xl font-bold text-white mt-1">4</p>
+                    </div>
+                    <div class="bg-brand-light-dark p-4 rounded-lg border border-slate-700">
+                        <p class="text-sm text-brand-text-secondary">Review Score</p>
+                        <p class="text-2xl font-bold text-white mt-1 flex items-center">4.9 <svg class="w-5 h-5 text-yellow-400 ml-1" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg></p>
+                    </div>
+                </div>
+
+                <div class="bg-brand-light-dark p-6 rounded-lg border border-slate-700">
+                    <div class="flex justify-between items-center mb-4">
+                         <h2 class="text-xl font-bold text-white">Next Session</h2>
+                         <button onclick="switchDashboardTab('tutor', 'bookings')" class="text-sm text-brand-blue hover:underline">View Calendar</button>
+                    </div>
+                    <div class="flex flex-col md:flex-row items-center gap-6 p-4 bg-slate-800/50 rounded-lg border border-slate-600/50">
+                        <div class="flex items-center gap-4">
+                            <div class="w-14 h-14 rounded-full bg-purple-600 flex items-center justify-center text-white text-xl font-bold">A</div>
+                            <div>
+                                <h3 class="text-lg font-bold text-white">Alex Johnson</h3>
+                                <p class="text-brand-text-secondary">COMP 1020 Help</p>
+                            </div>
+                        </div>
+                         <div class="md:ml-auto flex items-center gap-6">
+                            <div class="text-right">
+                                <p class="text-white font-semibold">Tomorrow</p>
+                                <p class="text-sm text-brand-text-secondary">2:00 PM - 3:00 PM</p>
+                            </div>
+                            <button class="bg-brand-blue hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">Start Call</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section: Bookings -->
+            <div id="section-bookings" class="dashboard-section hidden space-y-6">
+                <div class="flex justify-between items-center">
+                    <h2 class="text-2xl font-bold text-white">Bookings</h2>
+                    <div class="flex gap-2">
+                         <button class="text-sm bg-slate-700 text-white px-3 py-1.5 rounded">Upcoming</button>
+                         <button class="text-sm bg-transparent text-brand-text-secondary hover:text-white px-3 py-1.5 rounded">Past</button>
+                    </div>
+                </div>
+                <div class="bg-brand-light-dark rounded-lg border border-slate-700 overflow-hidden">
+                    <div class="divide-y divide-slate-700">
+                        <!-- Item -->
+                        <div class="p-6 flex flex-col sm:flex-row justify-between items-center gap-4 hover:bg-slate-800/30 transition-colors">
+                            <div class="flex items-center gap-4 w-full sm:w-auto">
+                                <div class="w-12 h-12 rounded-full bg-purple-600 flex items-center justify-center text-white font-bold">A</div>
+                                <div>
+                                    <h4 class="font-bold text-white">Alex Johnson</h4>
+                                    <p class="text-sm text-brand-text-secondary">COMP 1020 • Tomorrow, 2:00 PM</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-2 w-full sm:w-auto">
+                                <button class="flex-1 sm:flex-none px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white text-sm rounded-lg transition-colors">Message</button>
+                                <button class="flex-1 sm:flex-none px-4 py-2 border border-slate-600 text-brand-text-secondary hover:text-white text-sm rounded-lg transition-colors">Reschedule</button>
+                            </div>
+                        </div>
+                         <!-- Item -->
+                        <div class="p-6 flex flex-col sm:flex-row justify-between items-center gap-4 hover:bg-slate-800/30 transition-colors">
+                            <div class="flex items-center gap-4 w-full sm:w-auto">
+                                <div class="w-12 h-12 rounded-full bg-pink-500 flex items-center justify-center text-white font-bold">B</div>
+                                <div>
+                                    <h4 class="font-bold text-white">Brenda Smith</h4>
+                                    <p class="text-sm text-brand-text-secondary">COMP 1010 • Oct 29, 4:00 PM</p>
+                                </div>
+                            </div>
+                             <div class="flex gap-2 w-full sm:w-auto">
+                                <button class="flex-1 sm:flex-none px-4 py-2 bg-slate-700 hover:bg-slate-600 text-white text-sm rounded-lg transition-colors">Message</button>
+                                <button class="flex-1 sm:flex-none px-4 py-2 border border-slate-600 text-brand-text-secondary hover:text-white text-sm rounded-lg transition-colors">Reschedule</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section: Availability (Calendar) -->
+            <div id="section-availability" class="dashboard-section hidden space-y-6">
+                <div class="flex justify-between items-center">
+                    <h2 class="text-2xl font-bold text-white">Manage Availability</h2>
+                </div>
+                
+                <!-- Calendar Container -->
+                <div class="bg-brand-light-dark p-6 rounded-lg border border-slate-700">
+                    <!-- Calendar Header -->
+                    <div class="flex justify-between items-center mb-6">
+                        <h3 id="calendar-month-year" class="text-xl font-bold text-white">October 2024</h3>
+                        <div class="flex gap-2">
+                            <button id="cal-prev-month" class="p-2 hover:bg-slate-700 rounded-full text-white transition-colors">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                            </button>
+                            <button id="cal-next-month" class="p-2 hover:bg-slate-700 rounded-full text-white transition-colors">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Calendar Grid -->
+                    <div class="grid grid-cols-7 gap-2 mb-2 text-center">
+                        <div class="text-brand-text-secondary text-sm font-medium py-2">Sun</div>
+                        <div class="text-brand-text-secondary text-sm font-medium py-2">Mon</div>
+                        <div class="text-brand-text-secondary text-sm font-medium py-2">Tue</div>
+                        <div class="text-brand-text-secondary text-sm font-medium py-2">Wed</div>
+                        <div class="text-brand-text-secondary text-sm font-medium py-2">Thu</div>
+                        <div class="text-brand-text-secondary text-sm font-medium py-2">Fri</div>
+                        <div class="text-brand-text-secondary text-sm font-medium py-2">Sat</div>
+                    </div>
+                    <div id="calendar-days" class="grid grid-cols-7 gap-2">
+                        <!-- Days injected by JS -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Section: Earnings -->
+            <div id="section-earnings" class="dashboard-section hidden space-y-6">
+                 <h2 class="text-2xl font-bold text-white">Earnings History</h2>
+                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                     <div class="bg-brand-light-dark p-6 rounded-lg border border-slate-700">
+                         <p class="text-brand-text-secondary text-sm">Available for Payout</p>
+                         <h3 class="text-3xl font-bold text-white mt-2">$125.00</h3>
+                         <button class="mt-4 w-full bg-green-600 hover:bg-green-700 text-white py-2 rounded-md text-sm font-medium transition-colors">Withdraw Funds</button>
+                     </div>
+                 </div>
+                 <div class="bg-brand-light-dark rounded-lg border border-slate-700 overflow-hidden">
+                     <table class="w-full text-left text-sm text-brand-text-secondary">
+                         <thead class="bg-slate-800 text-white uppercase font-semibold">
+                             <tr>
+                                 <th class="px-6 py-3">Date</th>
+                                 <th class="px-6 py-3">Student</th>
+                                 <th class="px-6 py-3">Duration</th>
+                                 <th class="px-6 py-3 text-right">Amount</th>
+                             </tr>
+                         </thead>
+                         <tbody class="divide-y divide-slate-700">
+                             <tr class="hover:bg-slate-800/30">
+                                 <td class="px-6 py-4">Oct 25, 2024</td>
+                                 <td class="px-6 py-4">Mike Ross</td>
+                                 <td class="px-6 py-4">1 hr</td>
+                                 <td class="px-6 py-4 text-right text-green-400">+$25.00</td>
+                             </tr>
+                              <tr class="hover:bg-slate-800/30">
+                                 <td class="px-6 py-4">Oct 22, 2024</td>
+                                 <td class="px-6 py-4">Jessica Pearson</td>
+                                 <td class="px-6 py-4">2 hrs</td>
+                                 <td class="px-6 py-4 text-right text-green-400">+$50.00</td>
+                             </tr>
+                         </tbody>
+                     </table>
+                 </div>
+            </div>
+
+            <!-- Section: Profile -->
+            <div id="section-profile" class="dashboard-section hidden space-y-6">
+                <h2 class="text-2xl font-bold text-white">Profile & Settings</h2>
+                <div class="bg-brand-light-dark p-6 rounded-lg border border-slate-700">
+                    <div class="flex items-center gap-6 mb-6">
+                        <img src="https://picsum.photos/seed/sarah/200" alt="Sarah" class="w-24 h-24 rounded-full border-4 border-slate-700">
+                        <div>
+                            <button class="text-sm bg-slate-700 hover:bg-slate-600 text-white px-4 py-2 rounded transition-colors">Change Photo</button>
+                        </div>
+                    </div>
+                    <form class="space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-medium text-brand-text-secondary mb-1">Display Name</label>
+                                <input type="text" value="Sarah Chen" class="w-full bg-slate-700 border border-slate-600 text-white rounded-md p-2.5">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-brand-text-secondary mb-1">Hourly Rate ($)</label>
+                                <input type="number" value="25" class="w-full bg-slate-700 border border-slate-600 text-white rounded-md p-2.5">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-brand-text-secondary mb-1">Bio</label>
+                            <textarea rows="4" class="w-full bg-slate-700 border border-slate-600 text-white rounded-md p-2.5">Computer Science major passionate about helping others understand algorithms and data structures.</textarea>
+                        </div>
+                        <div class="pt-4">
+                             <button type="button" class="bg-brand-blue hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors duration-200">Save Profile</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Availability Modal -->
+    <div id="availability-modal" class="hidden fixed inset-0 z-[100] flex items-center justify-center bg-black/70 backdrop-blur-sm px-4">
+        <div class="bg-brand-light-dark w-full max-w-md rounded-lg border border-slate-700 shadow-2xl flex flex-col max-h-[85vh]">
+            <div class="flex justify-between items-center p-6 border-b border-slate-700">
+                <h3 id="modal-date-title" class="text-xl font-bold text-white">Edit Availability</h3>
+                <button id="close-avail-modal" class="text-brand-text-secondary hover:text-white p-1 rounded-md hover:bg-slate-700 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+            </div>
+            
+            <div class="p-6 overflow-y-auto">
+                <p class="text-brand-text-secondary text-sm mb-4">Set your available time slots for this day.</p>
+                <div id="time-slots-container" class="space-y-3 mb-4">
+                    <!-- Time slots injected here -->
+                </div>
+
+                <button id="add-time-slot" class="w-full py-2.5 border-2 border-dashed border-slate-600 text-brand-text-secondary hover:border-brand-blue hover:text-brand-blue hover:bg-slate-700/30 rounded-lg transition-all flex items-center justify-center gap-2 text-sm font-medium">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                    Add Time Slot
+                </button>
+            </div>
+
+            <div class="p-6 border-t border-slate-700 bg-slate-800/30 rounded-b-lg">
+                <button id="save-availability" class="w-full bg-brand-blue hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition-colors">Save Availability</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="border-t border-slate-800 mt-auto">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8 text-brand-text-secondary">
+        <div class="flex flex-col-reverse sm:flex-row justify-between items-center gap-6">
+          <p class="copyright-text text-sm text-center sm:text-left">&copy; 2024 Bison Prof. All rights reserved.</p>
+          <div class="flex items-center space-x-6">
+            <a href="#" class="text-sm hover:text-white transition-colors duration-200">Policy</a>
+            <a href="#" class="text-sm hover:text-white transition-colors duration-200">Contact Us</a>
+            <a href="#" class="text-sm hover:text-white transition-colors duration-200">Help</a>
+            <a href="#" class="text-sm hover:text-white transition-colors duration-200">About</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
